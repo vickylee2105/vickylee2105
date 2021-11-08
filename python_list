@@ -1,0 +1,34 @@
+list串列---都要用[]
+
+fruits = ['orange', 'apple', 'pear', 'banana', 'kiwi', 'apple', 'banana']
+#.count()---用來計算某個字出現幾次
+>>>fruits.count('apple') #apple在fruits這個list中出現2次，所以回傳2
+2
+>>>fruits.count('grape') #list裡面沒有grape，所以回傳0
+0
+
+#.index()---用來計算某個字出現在list中的順序，記得！都是從0開始數
+>>>fruits.index('banana') #banana在list中的順序是第四的，0開始數四個會數到3，所以回傳3
+3
+>>>fruits.index('banana',4) #list中從第4個開始數之後，再一次出現banana的順序是多少？下一次banana出現在第7，0開始數七個會數到6，所以回傳6
+6
+
+#.reverse()---用來顛倒list裡面字的排列順序
+>>>fruits.reverse()
+>>>fruits
+['banana','apple','kiwi','banana','pear','apple','orange']
+
+#.sort()---用abc順序（由a開始z結束）重新排列list中的字
+>>>fruits.sort()
+>>>fruits
+['apple','apple','banana','banana','kiwi','orange','pear']
+
+#.append()---括號裡面填的字，就是要再加入list中的字，一律會加在list的最後面
+>>>fruits.append('grape')
+['orange', 'apple', 'pear', 'banana', 'kiwi', 'apple', 'banana','grape']
+
+#.pop()---可以移除list中指定位置的字，若沒指定位置，會預設移除list中最後一個項目並回傳
+>>>fruits.pop() #括號內空白，即沒有指定要移除的位置，故移除最後一個'banana'
+banana
+>>>fruits.pop(3) #括號內為3，即指定移除0123，第4個項目為'banana'
+banana
