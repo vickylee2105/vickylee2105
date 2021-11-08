@@ -1,15 +1,15 @@
 dictionary 會用{}，且dictionary裡的東西不會照順序排列，且key和value都需要（需要文字也需要數值）
-=associate array 關聯記憶體 (in Perl/PHP)
+=associate array 關聯矩陣 (in Perl/PHP)
 =properties / map / HashMap (in Java)
 =property bag (in C# / .Net)
 
-dictionary和list的差別是dictionary會需要一個key(label/index/tag)去查找value，list裡面的key就是01234來排列
+dictionary和list的差別是dictionary會需要一個key(label/index/tag，key可以是字串或數值)去查找value，list裡面的key就是01234來排列
 
 #example1:
->>>purse=dict() #先做一個dictionary
+>>>purse=dict() #先做一個叫purse的dictionary
 >>>purse['money']=12 #開始新增字典裡的key跟value，此即把12放到purse裡面，並命名為money(money is index or tag or label)
->>>purse['candy']=3 
->>>purse['tissues']=75
+>>>purse['candy']=3 #開始新增字典裡的key跟value
+>>>purse['tissues']=75 #開始新增字典裡的key跟value
 >>>print(purse) #把purse這個字典印出來
 {'money':12,'tissues':75,'candy':3}
 >>>print(purse['candy']) #印出'candy'對應的value
@@ -21,7 +21,7 @@ dictionary和list的差別是dictionary會需要一個key(label/index/tag)去查
 {'money':12,'tissues':75,'candy':5}
 
 #example2: list & dictionary
->>>lst=list() #建立一個list
+>>>lst=list() #建立一個叫lst的list
 >>>lst.append(21) #把21加入list
 >>>lst.append(183) #把183加入list
 >>>print(lst)
@@ -30,7 +30,7 @@ dictionary和list的差別是dictionary會需要一個key(label/index/tag)去查
 >>>print(lst)
 [23,183] #因第0順位的值21，已經被換成23，故印出的值就是23)
 
->>>ddd=dict() #建立一個字典
+>>>ddd=dict() #建立一個叫ddd的字典
 >>>ddd['age']=21 #開始新增字典裡的key and value
 >>>ddd['course']=182 #開始新增字典裡的key and value
 >>>print(ddd)
@@ -38,3 +38,28 @@ dictionary和list的差別是dictionary會需要一個key(label/index/tag)去查
 >>>ddd['age']=23 #把字典中的'age'對應的值改成23
 >>>print(ddd)
 {'age':23,'course':182}
+
+#example3: dictionary tracebacks 字典可能引發的錯誤，導致python不能運行
+>>>ccc=dict() #建立一個叫ccc的字典
+>>>print(ccc['csev'])
+若字串沒有出現在字典中，會導致traceback，但是可以用以下方式去找某個字，是否有出現在字典中
+>>>'csev' in ccc #檢查某個字串是否出現在字典中
+false #即回傳'csev'並沒有出現在字典中
+
+#example4: 用dictionary來計算一段文字中，某個文字出現的次數
+counts=dict() #建立一本叫counts的字典
+names=['csev','cwen','csev','zqian','cwen']
+for name in names: #for loop，一個一個查找names清單裡面的東西
+  if name not in counts: #如果某個key不在字典中，就把它建立在字典中，且值設定為1(即這個字出現了1次）
+    counts[name]=1 
+  else: #如果某個key有在字典裡，那就加1次
+    counts[name]=counts[name]+1
+print(counts) #可知道counts字典中每個字出現的次數
+{'csev':2,'zqian':1,'cwen':2} #計算出每個字出現了幾次，'csev'出現2次，'zqian'出現1次，'cwen'出現2次）
+
+counts=dict()
+names=['csev','cwen','csev','zqian','cwen']
+for name in names: #for loop，一個一個查找names清單裡面的東西
+  counts[name]=counts.get(name,0)+1 #.get() #用name當key來查找，0為預設值，有了get就不用if else，因為如果name不在字典中，就是回傳預設值0，不會有traceback
+print(counts) #可知道counts字典中每個字出現的次數
+{'csev':2,'zqian':1,'cwen':2}
