@@ -1,0 +1,40 @@
+dictionary 會用{}，且dictionary裡的東西不會照順序排列，且key和value都需要（需要文字也需要數值）
+=associate array 關聯記憶體 (in Perl/PHP)
+=properties / map / HashMap (in Java)
+=property bag (in C# / .Net)
+
+dictionary和list的差別是dictionary會需要一個key(label/index/tag)去查找value，list裡面的key就是01234來排列
+
+#example1:
+>>>purse=dict() #先做一個dictionary
+>>>purse['money']=12 #開始新增字典裡的key跟value，此即把12放到purse裡面，並命名為money(money is index or tag or label)
+>>>purse['candy']=3 
+>>>purse['tissues']=75
+>>>print(purse) #把purse這個字典印出來
+{'money':12,'tissues':75,'candy':3}
+>>>print(purse['candy']) #印出'candy'對應的value
+3
+>>>print(purse['tissues']) #印出'tissues'對應的value
+75
+>>>purse['candy']=purse['candy']+2 #purse['candy']的對應值是3，3+2=5，所以現在'candy'的對應值就變成5
+>>>print(purse)
+{'money':12,'tissues':75,'candy':5}
+
+#example2: list & dictionary
+>>>lst=list() #建立一個list
+>>>lst.append(21) #把21加入list
+>>>lst.append(183) #把183加入list
+>>>print(lst)
+[21,183] #list會用[]
+>>>lst[0]=23 #把lst清單中第0順序的值改成23
+>>>print(lst)
+[23,183] #因第0順位的值21，已經被換成23，故印出的值就是23)
+
+>>>ddd=dict() #建立一個字典
+>>>ddd['age']=21 #開始新增字典裡的key and value
+>>>ddd['course']=182 #開始新增字典裡的key and value
+>>>print(ddd)
+{'age':21,'course':182}
+>>>ddd['age']=23 #把字典中的'age'對應的值改成23
+>>>print(ddd)
+{'age':23,'course':182}
