@@ -11,7 +11,7 @@ for line in handle: #用line去for loop查找東西
 		lst.append(line[1]) #用.append()去找line裡面排在第1順序的字（題目說要抓第二個字，因為從0開始數）
 
 ddd=dict() #建立一本叫ddd的字典
-for word in lst: #用word去for loop查找東西
+for word in lst: #用word去lst for loop查找東西
 	ddd[word]=ddd.get(word,0)+1 
 
 bigcount=None #用None搭配for loop找最大值
