@@ -1,0 +1,24 @@
+9.4 Write a program to read through the mbox-short.txt and figure out who has sent the greatest number of mail messages. The program looks for 'From ' lines and takes the second word of those lines as the person who sent the mail. The program creates a Python dictionary that maps the sender's mail address to a count of the number of times they appear in the file. After the dictionary is produced, the program reads through the dictionary using a maximum loop to find the most prolific committer.
+ 
+name=input('enter the file name:') #要求輸入檔案名稱
+if len(name)<1: name='mbox-shot.txt' #輸入名稱只要少於一個字（就是什麼都不用輸入的意思），就會打開預設的'mbox-shot.txt'
+handle=open(name) 
+
+lst=line() #建立清單
+for line in handle: #用line去for loop查找東西
+	if line.startswith('From '): #用.startswith()要找開頭是'From '的東西
+		line=line.split() #用.split()去分開每個字
+		lst.append(line[1]) #用.append()去找line裡面排在第1順序的字（題目說要抓第二個字，因為從0開始數）
+
+ddd=dict() #建立一本叫ddd的字典
+for word in lst: #用word去for loop查找東西
+	ddd[word]=ddd.get(word,0)+1 
+
+bigcount=None #用None搭配for loop找最大值
+bigword=None #用None搭配for loop找最大值
+for key,value in ddd.items(): #要用兩個分別的iteration variables去分別查找key跟value值，這邊直接用key和value當兩個iteration variables
+	if bigcount is None or value>bigcount: #這邊要用is None不能用=None
+		bigcount=value
+		bigword=key
+
+print(bigword,bigcount)
