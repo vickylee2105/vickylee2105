@@ -63,3 +63,80 @@ for name in names: #for loop，一個一個查找names清單裡面的東西
   counts[name]=counts.get(name,0)+1 #.get() #用name當key來查找，0為預設值，有了get就不用if else，因為如果name不在字典中，就是回傳預設值0，不會有traceback
 print(counts) #可知道counts字典中每個字出現的次數
 {'csev':2,'zqian':1,'cwen':2}
+
+#example5:
+counts=dict() #建立一本叫counts的字典
+line=input('enter a line of text:') #要求輸入一段文字（會顯示enter a line of text:)
+words=line.split() #.split()把上面輸入的文字都分開
+
+print('Words:',words)
+print('Counting...')
+
+for word in words:
+  counts[word]=counts.get(word,0)+1
+print('Counts',counts)
+
+#example6: 在字典裡面要用字典名稱[key]去查找value，不然只會回傳key而已
+>>>counts={'chuck':1,'fred':42,'jan':100}
+>>>for key in counts:
+      print(key,counts[key]) #key會回傳key，counts[key]會回傳value
+jan 100
+chuck 1 
+fred 42
+>>>
+
+#example7: retrieving lists of keys and values from a dictionary 可以變成清單
+>>>jjj={'chuck':1,'fred':42,'jan':100}
+>>>print(list(jjj)) #把字典中的key做成list
+['jan','chuck','fred'] #字典中的key都變成list，但因為字典本來就不會按順序排列
+>>>print(jjj.keys()) #.key()把字典中的key印出來做成list（跟上面list(jjj)的結果一樣）
+['jan','chuck','fred']
+>>>print(jjj.values()) #.values()把字典中的value印出來做成list
+[100,1,42]
+>>>print(jjj.items()) #.items()把字典中key和value的pair印出來做成list
+[('jan':100),('chuck',1),('fred',42)] #字典中的pair都會被印出來，要放在[]()裏面
+>>>
+
+***('jan':100)這種資料型態叫做tuple
+
+#example8: we loop through the key-value pairs in a dictionary using *two* iteration variables.
+jjj={'chuck':1,'fred':42,'jan':100}
+for aaa,bbb in jjj.items(): #aaa會for loop去抓字典裡所有的key值，bbb會for loop去抓字典裡對應的value
+  print(aaa,bbb)
+jan 100
+chuck 1
+fred 42
+  
+#example9: 打開一個檔案，去看裡面哪個字出現最多次，然後出現幾次
+name=input('enter file:') #要求輸入檔案名稱
+handle =open(name)  #用open打開上述輸入的檔案名
+
+counts=dict() #建立一本叫counts的字典
+for line in handle: #用line去for loop handle裡面的所有字
+  words=line.split() #用.split()去把所有字切開
+  for word in words: #用word去for loop找被切開的字裡面，哪個字出現最多次
+    counts[word]=counts.get(word,0)+1
+
+bigcount=None #用None配合for loop來找最大值
+bigword=None #用None配合for loop來找最大值
+for word,count in counts.items(): #運用example8，需要兩個iteration variables去分別查找key和value，所以這邊就是用word去找key，count去找value
+  if bigcount is None or count>bigcount:
+    bigword=word
+    bigcount=count
+print(bigword,bigcount)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
