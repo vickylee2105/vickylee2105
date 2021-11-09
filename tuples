@@ -1,0 +1,66 @@
+tuples are immutable. once you create a tuple, you cannot alter its content.
+>>>x=[9,8,7] #這是一個list，list is mutable，可以改裡面的東西
+>>>x[2]=6 #把清單中第2順序改成6，所以7會被改成6
+>>>print(x)
+[9,8,6]
+
+>>>y='ABC' #這是一個string
+>>>y[2]='D'
+會traceback，因為string is also immutable，string不能改裡面的東西
+
+>>>z=(5,4,3) #這是一個tuples，tuple跟list很像，但list用[]而tuple用（）
+>>>z[2]=0
+會traceback，因為tuple is immutable，tuple不能改裡面的東西
+
+也不能sort, append, reverse tuple，都會引發traceback
+
+tuples are comparable
+>>>(0,1,2)<(5,1,2) 
+True #會從最左邊的數字開始比，0<5，就決定是true，不會再看後面的數字
+>>>(0,1,2000000)<(0,3,4)
+True #第一個數字若相同，就比到下一個數字，1<3，就決定是true，不會再看後面的數字
+>>>('Jones','Sally')<('Jones','Sam')
+True #第一個字都是Jones，就比到下一個字，Sal和Sam，l比m前面，所以Sam比Sally大
+>>>('Jones','Sally')>('Adams','Sam')
+True #第一個字J比A還後面，所以Jones>Adams
+
+#sorting lists of tuples 
+>>>d={'a':10,'b':1,'c':22}
+>>>d.items()
+dict_items([('a',10),('c',22),('b',1)])
+>>>sorted(d.items())
+[('a',10),('b',1),('c',22)] #會用key來排序
+
+#sort by values instead of key
+>>>c={'a':10,'b':1,'c':22}
+>>>tmp=list() #建立清單
+>>>for k,v in c.items(): #用k v去for loop查找東西
+      tmp.append((v,k))
+>>>print(tmp)
+[(10,'a'),(22,'c'),(1,'b')] #已經變成value在前面的一個list
+>>>tmp=sorted(tmp, reverse=True) #reverse=True會用value由大到小
+>>>print(tmp)
+[(22,'c'),(10,'a'),(1,'b')]
+
+#找出10個最常出現的字
+fhand=open('romeo.txt')
+counts=dict() #建立字典
+for line in fhand:
+  words=line.split()
+  for word in words:
+    counts[word]=counts.get(word,0)+1
+
+lst=list() #建立清單
+for k,v in counts.items():
+ newtup=(v,k)
+ lst.append(newtup)
+
+lst=sorted(lst,reverse=True)
+
+for v,k in lst[:10]:
+  print(k,v)
+
+#list comprehension
+>>>c={'a':10,'b':1,'c':22}
+>>>print(sorted([(v,k) for k,v in c.items()]))
+[(1,'b'),(10,'a'),(22,'c')]
