@@ -1,0 +1,8 @@
+用None搭配for loop找最大值
+numbers = [55, 4, 92, 1, 104, 64, 73, 99, 20]
+max_value=None
+for num in Numbers:
+  if max_value=None or num>max_value:
+    max_value=num
+print('max value:',max_value)
+會回傳104(numbers列表中最大的值就是104)
