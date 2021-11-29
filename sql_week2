@@ -1,1 +1,35 @@
+is null means no data
+<> or != means not equal
+
+wildcard 通配符（會和LIKE一起用）
+%pizza 會找到pizza結尾的東西(grabs anything ending with the word pizza)
+pizza% 會找到pizza開頭的東西(grabs anything after the word pizza)
+%pizza% 會找到pizza被夾在中間的東西(grabs anything before and after the word pizza)
+S%E 會找到S開頭E結尾的字
+t%@gmail.com 會找到t開頭的email (tom@gmail.com)
+
+WHERE size LIKE '_pizza'
+output:
+spizza
+mpizza
+
+WHERE size LIKE '%pizza'
+output:
+spizza
+mpizza
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
