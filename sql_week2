@@ -18,6 +18,56 @@ output:
 spizza
 mpizza
 
+order by
+order by 2,3 ----- order by column2, order by column3
+desc ----- descending order 遞減
+asc ----- ascending order 遞增
+
+aggregate functions
+MAX() 
+MIN()
+SUM()
+COUNT()
+AVG()
+
+COUNT(*)-counts all the rows in a table containing values ot NULL values.
+用*就是所有值包含空白也會計算進去
+SELECT COUNT(*) AS total_customers
+FROM Customers;
+
+COUNT(column)-counts all the rows in a specific column ignoring NULL values.
+用某個column就會忽略空白，只會計算有值的column
+SELECT COUNT(CustomerID) AS total_customers
+FROM Customers;
+
+NULL values are ignored by the MIN/MAX/AVG functions.
+
+cannot use DISTINCT on COUNT(*)
+no value to use with MIN and MAX functions.
+
+HAVING
+- WHERE does not work for groups
+- WHERE filters on rows
+- so we use HAVING to filter for groups
+
+WHERE vs HAVING
+- WHERE filters before data is grouped
+- HAVING filters after data is grouped
+- rows eliminated by WHERE will not be included in the group
+
+ORDER BY sorts data
+GROUP BY does not sort data
+
+
+
+
+
+
+
+
+
+
+
 
 
 
