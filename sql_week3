@@ -1,0 +1,27 @@
+cartesian (cross) joins 交叉連結
+each row from the first table joins with all the rows of another table
+
+inner joins
+the INNER JOIN keyword selects records that have matching values in bothe tables.
+
+self joins
+
+left, right, full outer joins
+
+RDBS=relational database system 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
