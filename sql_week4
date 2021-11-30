@@ -70,11 +70,22 @@ END bytescategory
 FROM 
 tracks;
 
-
-
-
-
+creating a view 把各個表格的某個欄位整合在某個view
+CREATE VIEW my_view
+AS
+SELECT
+.
+.
+.
+.
+.
+.
+FROM
+INNER JOIN ...
+INNER JOIN ...
+INNER JOIN ...
  
+
 
 
 
