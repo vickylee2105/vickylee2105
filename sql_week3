@@ -10,6 +10,13 @@ left, right, full outer joins
 
 RDBS=relational database system 
 
+unions 聯集
+UNION 與 JOIN 不同的地方在於
+JOIN 是作橫向結合 (合併多個資料表的各欄位)
+UNION 則是作垂直結合 (合併多個資料表中的紀錄)
+
+
+
 
 
 
